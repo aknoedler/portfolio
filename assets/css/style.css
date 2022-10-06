@@ -1,38 +1,26 @@
-/* wireframing */
-
-header, main, footer {
-    border: 2px solid red;
-}
-
-nav, section, h1, h2{
-    border: 2px solid blue;
-}
-
-a, aside, div{
-    border: 2px solid green;
-}
-
-p {
-    border: 2px solid yellow;
-}
-
-/* real styling */
-
 :root{
-    --small-space: 12px;
+    --title-font: 'Times New Roman', Times, serif;
+    --body-font: 'Optima', Arial, sans-serif;
+    --small-space: 8px;
     --medium-space: 24px;
     --large-space: 48px;
+    --primary: teal;
+    --secondary: ivory;
+    --tertiary: palegoldenrod;
 }
 
 header{
     min-height: 100px;
+    background-color: var(--primary);
+    margin: 0;
+    border: 0;
+    padding: var(--small-space);
 }
 
 nav{
     display: flex;
     flex-direction: row;
     min-height: 50px;
-    margin: var(--small-space);
     justify-content: end;
 }
 
@@ -40,53 +28,143 @@ main{
     display: flex;
     flex-direction: column;
     flex: 1 0 0;
-}
-
-h1{
-    min-height: 50px;
-    margin: var(--small-space);
-}
-
-a, aside, div, p, h3{
-    padding: var(--small-space);
-    margin: var(--small-space);
-}
-
-section {
-    margin: var(--medium-space)
+    background: linear-gradient(180deg, var(--tertiary), var(--secondary));
 }
 
 aside{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
-.about_section, .contact_section{
+h1{
+    font-family: var(--main-font);
+    font-size: 42px;
+    color: var(--secondary);
+    margin-left: var(--large-space);
+}
+
+h2{
+    font-family: var(--main-font);
+    font-size: 32px;
+    color: var(--primary);
+    margin-left: var(--large-space);
+    text-decoration: underline;
+}
+
+h3{
+    font-family: var(--body-font);
+    font-size: 24px;
+    color: var(--primary);
+    margin-left: var(--large-space);
+    margin-right: var(--large-space);
+}
+
+nav a{
+    color: var(--secondary);
+    font-family: var(--main-font);
+    font-size: 24px;
+    margin-right: var(--large-space);
+}
+
+footer{
+    min-height: 100px;
+    background: linear-gradient(180deg, var(--secondary), var(--primary));
+}
+
+hr{
+    width: 80%;
+    border: var(--primary) solid 2px;
+}
+
+figcaption{
+    font-family: var(--body-font);
+    font-size: 24px;
+    text-align: center;
+    color: var(--primary);
+}
+
+p{
+    flex: 1 0 0;
+    font-family: var(--body-font) ;
+    padding: var(--small-space);
+    border: 6px solid var(--primary);
+    background-color: var(--secondary);
+    border-top-left-radius: var(--medium-space);
+    border-bottom-right-radius: var(--medium-space);
+}
+
+img{
+    border: var(--primary) solid 6px;
+    border-top-left-radius: var(--medium-space);
+    border-bottom-right-radius: var(--medium-space);
+}
+
+.about_section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.about_section p{
+    flex: 1 0 0;
+    margin-left: var(--small-space);
+    margin-right: var(--small-space);
+}
+
+.about_section *{
+    margin-top: var(--small-space);
+    margin-right: var(--medium-space);
+}
+
+.main_project *{
+    margin-left: var(--medium-space);
+    margin-right: var(--medium-space);
+}
+
+.side_project *{
+    margin-left: var(--medium-space);
+    margin-right: var(--medium-space);
+}
+
+.side_project figcaption{
+    font-size: 20px;
+}
+
+.contacts_container{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.main_project{
-    display: flex;
-    flex-direction: row;
-}
-
-.sp_container{
+.project_container{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
-.side_project{
-    max-width: 360px;
+.main_project, .sp_container, .side_project{
+    display: flex;
+    flex-direction: column;
 }
 
+.project_description{
+    visibility: hidden;
+    min-height: 100px;
+    max-height: 200px;
+}
+
+figure:hover + p{
+    visibility: visible;
+}
 /* Media query */
 
 @media screen and (max-width: 768px) {
-    nav, .main_project, .sp_container{
+    nav{
         flex-direction: column;
+    }
+
+    .project_description{
+        visibility: visible;
     }
 }
