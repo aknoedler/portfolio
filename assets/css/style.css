@@ -9,12 +9,24 @@
     --tertiary: palegoldenrod;
 }
 
+a {
+    text-decoration: none;
+}
+
 header{
     min-height: 100px;
     background-color: var(--primary);
     margin: 0;
     border: 0;
     padding: var(--small-space);
+}
+
+figure{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: var(--medium-space);
+    margin-right: var(--medium-space);
 }
 
 nav{
@@ -64,6 +76,7 @@ nav a{
     font-family: var(--main-font);
     font-size: 24px;
     margin-right: var(--large-space);
+    margin-bottom: var(--small-space);
 }
 
 footer{
@@ -79,8 +92,13 @@ hr{
 figcaption{
     font-family: var(--body-font);
     font-size: 24px;
-    text-align: center;
     color: var(--primary);
+    border: var(--primary) solid 6px;
+    border-radius: var(--small-space);
+    background-color: var(--secondary);
+    width: fit-content;
+    padding: var(--small-space);
+    margin-top: -24px;
 }
 
 p{
@@ -91,6 +109,8 @@ p{
     background-color: var(--secondary);
     border-top-left-radius: var(--medium-space);
     border-bottom-right-radius: var(--medium-space);
+    margin-left: var(--medium-space);
+    margin-right: var(--medium-space);
 }
 
 img{
@@ -102,13 +122,18 @@ img{
 .about_section{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+.about_section img{
+    max-height: 200px;
+    margin-left: var(--medium-space);
 }
 
 .about_section p{
     flex: 1 0 0;
-    margin-left: var(--small-space);
-    margin-right: var(--small-space);
+    min-width: 600px;
 }
 
 .about_section *{
@@ -116,14 +141,12 @@ img{
     margin-right: var(--medium-space);
 }
 
-.main_project *{
-    margin-left: var(--medium-space);
-    margin-right: var(--medium-space);
+.main_project p{
+    max-width: 600px;
 }
 
-.side_project *{
-    margin-left: var(--medium-space);
-    margin-right: var(--medium-space);
+.side_project p{
+    max-width: 400px;
 }
 
 .side_project figcaption{
@@ -146,6 +169,7 @@ img{
 .main_project, .sp_container, .side_project{
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .project_description{
@@ -160,7 +184,7 @@ figure:hover + p{
 /* Media query */
 
 @media screen and (max-width: 768px) {
-    nav{
+    nav, .contacts_container{
         flex-direction: column;
     }
 
