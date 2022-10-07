@@ -33,7 +33,7 @@
                 responsive to screen size changes. If the screen width goes below a certain point, the
                 description boxes can be viewed without hovering so they can be seen on a touchscreen smartphone.
             </p>
-            <img src="./assets/img/profile.jpg" />
+            <img class="big_image" src="./assets/img/profile.jpg" />
         </section>
 
         <hr>
@@ -42,11 +42,15 @@
 
             <h2>Projects</h2>
 
+            <!-- The projects_container section has two sub-sections, one for the main project which
+            is displayed more prominently and one for the side projects. Flex wrap is used so that on
+            a large screen they are displayed side-by-side but wrap to a column for smaller screens. -->
+
             <section class="project_container">
 
-                <section class="main_project">
+                <section class="column_container">
                     <figure>
-                        <a href="https://github.com/aknoedler"><img src="./assets/img/project_placeholder_one.jpg" /></a>
+                        <a href="https://github.com/aknoedler"><img class="big_image" src="./assets/img/project_placeholder_one.jpg" /></a>
                         <figcaption>Placeholder Project One</figcaption>
                     </figure>
                     <p class="project_description">A placeholder for my future projects. Right now the
@@ -54,11 +58,13 @@
                     </p>
                 </section>
 
-                <aside class="sp_container">
+                <aside class="column_container">
 
-                    <section class="side_project">
+                    <!-- Each side project also has its own section to organize the content within it. -->
+
+                    <section class="side_project column_container">
                         <figure>
-                            <a href="https://github.com/aknoedler"><img src="./assets/img/project_placeholder_two.jpg" /></a>
+                            <a href="https://github.com/aknoedler"><img class="side_image" src="./assets/img/project_placeholder_two.jpg" /></a>
                             <figcaption>Placeholder Project Two</figcaption>
                         </figure>
                         <p class="project_description">A placeholder for my future projects. Right now the
@@ -66,9 +72,9 @@
                         </p>
                     </section>
 
-                    <section class="side_project">
+                    <section class="side_project column_container">
                         <figure>
-                            <a href="https://github.com/aknoedler"><img src="./assets/img/project_placeholder_three.jpg" /></a>
+                            <a href="https://github.com/aknoedler"><img class="side_image" src="./assets/img/project_placeholder_three.jpg" /></a>
                             <figcaption>Placeholder Project Three</figcaption>
                         </figure>
                         <p class="project_description">A placeholder for my future projects. Right now the
@@ -76,9 +82,9 @@
                         </p>
                     </section>
 
-                    <section class="side_project">
+                    <section class="side_project column_container">
                         <figure>
-                            <a href="https://github.com/aknoedler"><img src="./assets/img/project_placeholder_four.jpg" /></a>
+                            <a href="https://github.com/aknoedler"><img class="side_image" src="./assets/img/project_placeholder_four.jpg" /></a>
                             <figcaption>Placeholder Project Four</figcaption>
                         </figure>
                         <p class="project_description">A placeholder for my future projects. Right now the

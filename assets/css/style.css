@@ -1,3 +1,5 @@
+/* Variable definition. */
+
 :root{
     --title-font: 'Times New Roman', Times, serif;
     --body-font: 'Optima', Arial, sans-serif;
@@ -9,31 +11,12 @@
     --tertiary: palegoldenrod;
 }
 
-a {
-    text-decoration: none;
-}
-
 header{
     min-height: 100px;
     background-color: var(--primary);
     margin: 0;
     border: 0;
     padding: var(--small-space);
-}
-
-figure{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-left: var(--medium-space);
-    margin-right: var(--medium-space);
-}
-
-nav{
-    display: flex;
-    flex-direction: row;
-    min-height: 50px;
-    justify-content: end;
 }
 
 main{
@@ -43,9 +26,9 @@ main{
     background: linear-gradient(180deg, var(--tertiary), var(--secondary));
 }
 
-aside{
-    display: flex;
-    flex-direction: column;
+footer{
+    min-height: 100px;
+    background: linear-gradient(180deg, var(--secondary), var(--primary));
 }
 
 h1{
@@ -71,34 +54,25 @@ h3{
     margin-right: var(--large-space);
 }
 
+a {
+    text-decoration: none;
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+    min-height: 50px;
+    justify-content: end;
+}
+
+/* Adds specific styling to the links in the nav bar. */
+
 nav a{
     color: var(--secondary);
     font-family: var(--main-font);
     font-size: 24px;
     margin-right: var(--large-space);
     margin-bottom: var(--small-space);
-}
-
-footer{
-    min-height: 100px;
-    background: linear-gradient(180deg, var(--secondary), var(--primary));
-}
-
-hr{
-    width: 80%;
-    border: var(--primary) solid 2px;
-}
-
-figcaption{
-    font-family: var(--body-font);
-    font-size: 24px;
-    color: var(--primary);
-    border: var(--primary) solid 6px;
-    border-radius: var(--small-space);
-    background-color: var(--secondary);
-    width: fit-content;
-    padding: var(--small-space);
-    margin-top: -24px;
 }
 
 p{
@@ -113,17 +87,57 @@ p{
     margin-right: var(--medium-space);
 }
 
+hr{
+    width: 80%;
+    border: var(--primary) solid 2px;
+}
+
+aside{
+    display: flex;
+    flex-direction: column;
+}
+
+
+figure{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: var(--medium-space);
+    margin-right: var(--medium-space);
+}
+
+/* Styling to make the caption appear centered and inset into the images. */
+
+figcaption{
+    font-family: var(--body-font);
+    font-size: 24px;
+    color: var(--primary);
+    border: var(--primary) solid 6px;
+    border-radius: var(--small-space);
+    background-color: var(--secondary);
+    width: fit-content;
+    padding: var(--small-space);
+    margin-top: -24px;
+}
+
 img{
     border: var(--primary) solid 6px;
     border-top-left-radius: var(--medium-space);
     border-bottom-right-radius: var(--medium-space);
 }
 
+/* Classes to style the "About Me" section and organize the elements in it. */
+
 .about_section{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: left;
+}
+
+.about_section *{
+    margin-top: var(--small-space);
+    margin-right: var(--medium-space);
 }
 
 .about_section img{
@@ -133,31 +147,31 @@ img{
 
 .about_section p{
     flex: 1 0 0;
-    min-width: 600px;
+    /*min-width: 600px;*/
 }
 
-.about_section *{
-    margin-top: var(--small-space);
-    margin-right: var(--medium-space);
+.big_image{
+    max-width: 60vw;
 }
 
-.main_project p{
-    max-width: 600px;
-}
-
-.side_project p{
-    max-width: 400px;
-}
-
-.side_project figcaption{
-    font-size: 20px;
-}
+/* Class to style the "Contacts" section and organize the element in it.  */
 
 .contacts_container{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
+
+/* A generic class that organizes its content into a flex column. Used for the main project
+section, the aside bar containing the side projects, and for the individual side project sections. */
+
+.column_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* A class to organize the content within the project section. */
 
 .project_container{
     display: flex;
@@ -166,29 +180,55 @@ img{
     justify-content: space-evenly;
 }
 
-.main_project, .sp_container, .side_project{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+/* Governs the behavior of the project description boxes. They are normally hidden, but when
+there is a mouse hover or the screen goes below a certain width they become visible. */
 
 .project_description{
     visibility: hidden;
     min-height: 100px;
     max-height: 200px;
 }
+.side_project p{
+    max-width: 400px;
+}
+
+.side_image{
+    max-width: 40vw;
+}
+
+.side_project figcaption{
+    font-size: 20px;
+}
 
 figure:hover + p{
     visibility: visible;
 }
+
+
 /* Media query */
 
 @media screen and (max-width: 768px) {
+
+    /* When the screen goes below 768px the nav bar, about section, contacts section switch to a vertical
+    orientation. */
+
     nav, .contacts_container{
         flex-direction: column;
     }
 
     .project_description{
         visibility: visible;
+    }
+
+    figcaption, .side_project figcaption{
+        font-size: 12px;
+    }
+
+    h3{
+        font-size: 16px;
+    }
+
+    .about_section{
+        flex-direction: column;
     }
 }
